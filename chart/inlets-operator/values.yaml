@@ -1,24 +1,33 @@
 replicaCount: 1
 
-provider: "digitalocean"
-region: "lon1"
+provider: 'digitalocean'
+region: 'lon1'
+accessKeyFile: '/var/secrets/inlets/inlets-access-key'
 
-#provider: "packet"
-#region: "ams1"
+## Example for packet.com
+# provider: "packet"
+# region: "ams1"
 # packetProjectId: "project-id"
-accessKeyFile: "/var/secrets/inlets/inlets-access-key"
+# accessKeyFile: '/var/secrets/inlets/inlets-access-key'
+
+## Example for scaleway.com
+# provider: "scaleway"
+# region: "fr-par-1"
+# scalewayOrganizationId: "org"
+# accessKeyFile: '/var/secrets/inlets/inlets-access-key'
+# secretKeyFile: '/var/secrets/inlets/inlets-secret-key'
 
 # Obtain from https://github.com/alexellis/inlets-pro-pkg
-inletsProLicense: ""
+inletsProLicense: ''
 
 annotatedOnly: false
 
-image: "inlets/inlets-operator:0.4.4"
-pullPolicy: "IfNotPresent"
-clientImage: "inlets/inlets:2.6.1"
+image: 'inlets/inlets-operator:0.4.4'
+pullPolicy: 'IfNotPresent'
+clientImage: 'inlets/inlets:2.6.1'
 
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: ''
+fullnameOverride: ''
 
 resources:
   requests:

@@ -30,11 +30,17 @@ spec:
         - "-annotated-only"
         {{- end }}
         - "-provider={{.Values.provider}}"
-        - "-access-key-file={{.Values.accessKeyFile}}"
         - "-license={{.Values.inletsProLicense}}"
         - "-region={{.Values.region}}"
+        - "-access-key-file={{.Values.accessKeyFile}}"
+        {{- if .Values.secretKeyFile }}
+        - "-secret-key-file={{.Values.secretKeyFile}}"
+        {{- end }}
         {{- if .Values.packetProjectId }}
-        - "-region={{.Values.packetProjectId}}"
+        - "-project-id={{.Values.packetProjectId}}"
+        {{- end }}
+        {{- if .Values.scalewayOrganizationId }}
+        - "-organization-id={{.Values.scalewayOrganizationId}}"
         {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
